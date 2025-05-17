@@ -1,0 +1,52 @@
+import { Button } from "@/components/ui/button";
+import React from "react";
+
+export default function Root(): JSX.Element {
+  return (
+    <main className="relative h-screen w-full bg-[url(/image-3.png)] bg-cover bg-center overflow-hidden">
+      <div className="flex flex-col h-full">
+        {/* Left side with image */}
+        <div className="absolute left-[27px] top-[98px] h-[550px] w-[525px] bg-[url(/image.png)] bg-cover bg-center rounded-lg overflow-hidden">
+          <img
+            className="absolute left-[109px] top-[207px] h-[171px] w-[171px] object-cover"
+            alt="Soccer ball"
+            src=""
+          />
+        </div>
+
+        {/* Right side content */}
+        <div className="flex flex-col items-center justify-center h-full ml-auto mr-8 max-w-[600px]">
+          {/* Title and tagline */}
+          <div className="flex flex-col items-center mb-24">
+            <h1 className="[font-family:'Inter-SemiBold',Helvetica] font-semibold text-[61.2px] text-[#eeeef3] tracking-normal">
+              FlexiForgeKit
+            </h1>
+            <p className="[font-family:'Inter-Medium',Helvetica] font-medium text-[24.7px] text-[#cbcbde] tracking-normal mt-2">
+              Shape your Vision. Flex your Kit.
+            </p>
+          </div>
+
+          {/* Small text element */}
+          <div className="absolute left-[868px] top-[331px] [font-family:'Inter-Light',Helvetica] font-light text-[12.2px] text-[#050621]">
+            Text
+          </div>
+
+          {/* CTA section */}
+          <div className="flex flex-col items-center">
+            <h2 className="[font-family:'Inter-SemiBold',Helvetica] font-semibold text-[43.8px] text-[#e3e3ea] text-center leading-[51.4px] mb-16">
+              Click Below to get
+              <br />
+              started for free
+            </h2>
+
+            <Button className="h-[104px] w-[213px] rounded-[3px_3px_0px_0px] bg-[#4cd964] hover:bg-[#3bc053]">
+              <span className="[font-family:'Inter-Medium',Helvetica] font-medium text-[30.9px] text-[#0a1d0d]">
+                Get Started
+              </span>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
