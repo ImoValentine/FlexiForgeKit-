@@ -2,7 +2,7 @@ import React, { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import productSelection from './productSelection';
+import productselection from './productselection';
 
 function Model() {
   const gltf = useGLTF('/use.glb');
