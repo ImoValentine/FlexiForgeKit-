@@ -2,7 +2,7 @@ import React, { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import productselection from './productselection';
+import ProductSelection from './productselection';
 
 function Model() {
   const gltf = useGLTF('/use.glb');
@@ -12,7 +12,7 @@ function Model() {
       ref.current.rotation.y += delta * 0.3; // Slow rotation
     }
   });
-  return <primitive ref={ref} object={gltf.scene} scale={9} position={[0, 1, 0]} />;
+  return <primitive ref={ref} object={gltf.scene} scale={5} position={[0, -0.2, 0]} />;
 }
 
 function LandingPage() {
@@ -72,8 +72,9 @@ function LandingPage() {
       >
         Shape Your Vision, Flex Your Kit
       </h2>
+
       <div style={{ position: 'relative', zIndex: 10, width: 600, height: 400, margin: '60px auto 16px auto' }}>
-        <Canvas camera={{ position: [0, 1, 6], fov: 80 }}>
+        <Canvas camera={{ position: [0, 1, 4], fov: 60 }}>
           <ambientLight intensity={0.8} />
           <directionalLight position={[5, 5, 5]} intensity={0.7} />
           <Suspense fallback={null}>
@@ -81,6 +82,7 @@ function LandingPage() {
           </Suspense>
           <OrbitControls enablePan={false} />
         </Canvas>
+
       </div>
       <div style={{ position: 'relative', zIndex: 10, width: '100%', textAlign: 'center', marginTop: 50 }}>
         <div
@@ -111,7 +113,7 @@ function LandingPage() {
               boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
               cursor: 'pointer',
             }}
-            onClick={() => navigate('/home')}
+            onClick={() => navigate('/productSelect')}
           >
             <div
               style={{
@@ -162,7 +164,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<ProductSelection />} />
+        <Route path="/productSelect" element={<ProductSelection />} />
       </Routes>
     </BrowserRouter>
   );

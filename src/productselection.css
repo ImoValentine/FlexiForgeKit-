@@ -1,0 +1,242 @@
+/* productselection.css */
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  background-color: #0e1b2b;
+  color: white;
+}
+
+/* Main Section */
+main {
+  background-image: url('/8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+/* Top Bar */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: transparent;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.top-bar-heading {
+  background-color: transparent;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.top-bar-search {
+  padding: 20px;
+}
+
+/* Product Cards */
+.product-card {
+  border-radius: 20px;
+}
+
+.card-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.grid {
+  gap: 15px;
+  max-height: calc(100vh - 240px); /* Tightened to prevent scrolling */
+}
+
+/* Proceed Button */
+.proceed-button {
+  padding: 16px 32px;
+  border-radius: 12px;
+  margin-top: 32px; /* Ensure top padding */
+}
+
+/* Left Panel (Sidebar) */
+.sidebar {
+  gap: 8px;
+  position: relative;
+}
+
+.color-picker-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  padding: 4px;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-picker-panel {
+  position: absolute;
+  left: 8px;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202c36;
+  padding: 12px;
+  border-radius: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 140px;
+}
+
+/* Preset Colors */
+.preset-colors {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preset-colors button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Color Input */
+.custom-color {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.custom-color-input {
+  width: 70px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.custom-color button {
+  padding: 4px 12px;
+  background-color: #4cdc64;
+  color: #0a1d0d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Right Panel */
+aside {
+  width: 420px;
+  background: #202c36;
+  padding: 16px; /* Reduced from 24px to save space */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.right-panel-selected-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px; /* Reduced from 16px to save space */
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* 3D Model and Fallback */
+.model-wrapper {
+  flex: 4; /* Reduced from 7 to shrink model height */
+  display: flex;
+  flex-direction: column;
+}
+
+.model-display {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.model-display img {
+  height: 180px; /* Reduced from 260px to shrink fallback image */
+  object-fit: contain;
+}
+
+.model-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.model-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Kit Components */
+.kit-components {
+  flex: 3;
+  font-size: 0.9rem;
+  min-height: 80px; /* Reduced from 100px to save space */
+  margin-top: 12px; /* Pull Kit Structure upward */
+}
+
+.kit-structure-wrapper {
+  background: #374151; /* Dark background for heading visibility */
+  padding: 8px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 4px; /* Reduced from 8px for tighter spacing */
+}
+
+.kit-structure-heading {
+  color: white !important;
+  font-size: 1.125rem !important;
+  font-weight: bold !important;
+  padding: 4px 0 !important;
+  z-index: 10 !important;
+  display: block !important;
+}
+
+.components-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 1024px) {
+  .model-display img {
+    height: 140px; /* Further reduced for smaller screens */
+  }
+  .model-container {
+    height: 100%;
+  }
+  .grid {
+    max-height: calc(100vh - 200px); /* Adjust for smaller screens */
+  }
+}
