@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 
 // 3D Model Component
 function Model({ color }) {
-  const gltf = useGLTF('/use.glb');
+  const gltf = useGLTF('/Meshdef.glb');
   const ref = React.useRef();
 
   React.useEffect(() => {
@@ -30,7 +30,7 @@ function Model({ color }) {
       ref={ref}
       object={gltf.scene}
       scale={4}
-      position={[0, 0, 0]}
+      position={[0, -0.5, 0]}
       rotation={[0, Math.PI, 0]}
     />
   );
@@ -45,10 +45,7 @@ export default function ProductSelection() {
   return (
     <div className="flex w-screen h-screen min-h-[900px] bg-black overflow-hidden">
       {/* Left Panel (Sidebar) */}
-      <aside className="sidebar w-[80px] bg-[#202C36] flex flex-col items-center py-6">
-        <img src="/icon-dashboard.svg" alt="Dashboard" className="w-8 h-8 mb-4" />
-        <img src="/icon-users.svg" alt="Users" className="w-8 h-8 mb-4" />
-        <img src="/icon-calendar.svg" alt="Calendar" className="w-8 h-8 mb-4" />
+      <aside className="sidebar w-[80px] bg-[#202C36] flex flex-col justify-center items-center py-6">
         <button className="color-picker-btn" onClick={() => setShowColorPicker(prev => !prev)}>
           🎨
         </button>
@@ -154,7 +151,7 @@ export default function ProductSelection() {
           <div className="model-wrapper">
             {selectedKit === 'kit1' ? (
               <div className="model-container">
-                <Canvas camera={{ position: [0, 1.2, 3.5], fov: 50 }} style={{ height: '100%' }}>
+                <Canvas camera={{ position: [0, 1, 3.5], fov: 60 }} style={{ height: '100%' }}>
                   <ambientLight intensity={1} />
                   <directionalLight position={[5, 5, 5]} intensity={1} />
                   <Suspense fallback={null}>

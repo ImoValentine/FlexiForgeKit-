@@ -5,11 +5,11 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import ProductSelection from './productselection';
 
 function Model() {
-  const gltf = useGLTF('/use.glb');
+  const gltf = useGLTF('/Meshdef.glb');
   const ref = useRef();
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.y += delta * 0.3; // Slow rotation
+      ref.current.rotation.y += delta * 0.5; // Slow rotation
     }
   });
   return <primitive ref={ref} object={gltf.scene} scale={5} position={[0, -0.2, 0]} />;
@@ -153,7 +153,7 @@ function LandingPage() {
           textAlign: 'right',
         }}
       >
-        Built by Imraan Jacobs. Jacobs Dynamic Development
+        Built by Imraan Jacobs. Jacobs Dynamic Development - Kits Designed by Duane Van Heerden
       </div>
     </div>
   );
