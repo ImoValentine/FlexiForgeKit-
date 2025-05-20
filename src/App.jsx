@@ -2,14 +2,14 @@ import React, { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import ProductSelection from './productselection.jsx'; // Explicit extension
+import ProductSelection from './productselection.jsx';
 
 function Model() {
   const gltf = useGLTF('/Meshdef.glb');
   const ref = useRef();
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.y += delta * 0.5; // Slow rotation
+      ref.current.rotation.y += delta * 0.5;
     }
   });
   return <primitive ref={ref} object={gltf.scene} scale={5} position={[0, -0.2, 0]} />;
@@ -72,8 +72,18 @@ function LandingPage() {
       >
         Shape Your Vision, Flex Your Kit
       </h2>
-
-      <div style={{ position: 'relative', zIndex: 10, width: 600, height: 400, margin: '60px auto 16px auto' }}>
+      <div style={{ 
+        position: 'relative', 
+        zIndex: 10, 
+        width: 600, 
+        height: 400, 
+        margin: '60px auto 16px auto',
+        '@media (max-width: 640px)': {
+          width: '90vw',
+          height: '40vh',
+          margin: '4vh auto 1vh auto',
+        }
+      }}>
         <Canvas camera={{ position: [0, 1, 4], fov: 60 }}>
           <ambientLight intensity={0.8} />
           <directionalLight position={[5, 5, 5]} intensity={0.7} />
@@ -82,9 +92,17 @@ function LandingPage() {
           </Suspense>
           <OrbitControls enablePan={false} />
         </Canvas>
-
       </div>
-      <div style={{ position: 'relative', zIndex: 10, width: '100%', textAlign: 'center', marginTop: 50 }}>
+      <div style={{ 
+        position: 'relative', 
+        zIndex: 10, 
+        width: '100%', 
+        textAlign: 'center', 
+        marginTop: 50,
+        '@media (max-width: 640px)': {
+          marginTop: '5vh',
+        }
+      }}>
         <div
           style={{
             color: '#e3e3ea',
@@ -93,11 +111,23 @@ function LandingPage() {
             fontSize: 32,
             marginTop: 50,
             paddingTop: 55,
+            '@media (max-width: 640px)': {
+              fontSize: '16px',
+              marginTop: '5vh',
+              paddingTop: '3vh',
+            }
           }}
         >
           Click Below to get started
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 15 }}>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          marginTop: 15,
+          '@media (max-width: 640px)': {
+            marginTop: '2vh',
+          }
+        }}>
           <button
             style={{
               width: 180,
@@ -112,6 +142,11 @@ function LandingPage() {
               zIndex: 20,
               boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
               cursor: 'pointer',
+              '@media (max-width: 640px)': {
+                width: '40vw',
+                height: '15vh',
+                paddingTop: 0,
+              }
             }}
             onClick={() => navigate('/productSelect')}
           >
@@ -124,6 +159,10 @@ function LandingPage() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 background: '#4cdc64',
+                '@media (max-width: 640px)': {
+                  width: '95%',
+                  height: '85%',
+                }
               }}
             >
               <span
@@ -133,6 +172,9 @@ function LandingPage() {
                   width: '100%',
                   textAlign: 'center',
                   color: '#0a1d0d',
+                  '@media (max-width: 640px)': {
+                    fontSize: '14px',
+                  }
                 }}
               >
                 Get Started
@@ -151,6 +193,11 @@ function LandingPage() {
           fontSize: 10,
           zIndex: 20,
           textAlign: 'right',
+          '@media (max-width: 640px)': {
+            bottom: '1vh',
+            right: '1vw',
+            fontSize: '8px',
+          }
         }}
       >
         Built by Imraan Jacobs. Jacobs Dynamic Development - Kits Designed by Duane Van Heerden

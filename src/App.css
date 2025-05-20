@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Mobile Adjustments (640px and below) */
+@media screen and (max-width: 640px) {
+  #root {
+    padding: 1rem; /* Reduce padding for mobile */
+    max-width: 100%; /* Full width on mobile */
+  }
+
+  .logo {
+    height: 4em; /* Smaller logo on mobile */
+    padding: 1em;
+  }
+
+  .card {
+    padding: 1em; /* Reduce card padding for mobile */
+  }
+
+  .read-the-docs {
+    font-size: 0.875rem; /* Smaller text for mobile */
+  }
+}
